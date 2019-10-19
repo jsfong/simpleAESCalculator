@@ -14,10 +14,16 @@ plugins {
 repositories {
     // Use jcenter for resolving dependencies.
     // You can declare any Maven/Ivy/file repository here.
-   
     mavenCentral()
-  
+}
    
+   
+jar{
+    version = '1.0' 
+	manifest{
+		attributes "Main-Class": "com.AESCalculator.Main"
+	}
+
 }
 
 dependencies {
