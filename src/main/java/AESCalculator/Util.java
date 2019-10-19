@@ -1,4 +1,4 @@
-package demo;
+package AESCalculator;
 
 public class Util {
 	
@@ -13,4 +13,11 @@ public class Util {
 	    return new String(hexChars);
 	}
 
+	
+	public static byte[] pkcs7padding(byte[] input) {
+		
+		
+		return input;
+		
+	}
 }

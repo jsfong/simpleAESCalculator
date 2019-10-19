@@ -1,4 +1,4 @@
-package demo;
+package AESCalculator;
 
 import java.util.Scanner;
 
@@ -14,23 +14,23 @@ public class Main {
 				
 		Scanner scan = new Scanner(System.in);
 		
-		System.out.println("Mode: To decrypt (D) or encrypt (E)");
+		System.out.println("Mode: To decrypt (D) or encrypt (E): ");
 		String mode = scan.next();
 		System.out.println("Entered " + mode);
 		
-		System.out.println("Enter AES Key 256 length in based64");
+		System.out.println("Enter AES Key 256 length in based64: ");
 		String key = scan.next();
 		System.out.println("Entered " + key);
 		
 		//Setting key
 		AES.setKey(key);
 		
-		System.out.println("Enter IV in based 64");
+		System.out.println("Enter IV in based 64: ");
 		String iv = scan.next();
 		System.out.println("Entered " + iv);
 		
 
-		System.out.println("Enter msg ");
+		System.out.println("Enter msg: ");
 		String msg = scan.next();
 		System.out.println("Entered " + msg);
 
@@ -40,14 +40,29 @@ public class Main {
 		//Set IV
 		AES.setIv(iv);
 		
-		//Encrypt
-		try {
-			AES.encrypt(msg);
-		} catch (Exception e) {
-			e.printStackTrace();
+		String output = null;
+		if(mode.equalsIgnoreCase("e")) {
+			//Encrypt
+			try {
+				output = AES.encrypt(msg);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}
+		else {
+			
+			//Encrypt
+			try {
+				output = AES.decrypt(msg);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
 		}
 		
-		
+		System.out.println("OUTPUT: ");
+		System.out.println(output);
 		
 	}
 
